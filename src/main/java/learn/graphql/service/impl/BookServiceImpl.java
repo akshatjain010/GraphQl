@@ -6,6 +6,7 @@ package learn.graphql.service.impl;
 
 import java.util.List; 
 import learn.graphql.exception.BookNotFoundException;
+import learn.graphql.exception.IllegalArgsException;
 import learn.graphql.model.Book;
 import learn.graphql.repo.BookRepo;
 import learn.graphql.service.BookService;
@@ -24,6 +25,11 @@ public class BookServiceImpl implements BookService{
     
     @Override
     public Book createBook(Book book) {
+        if(book.getTitle().isBlank()) throw new IllegalArgsException("Please fill title");
+        if(book.getDesc().isBlank()) throw new IllegalArgsException("Please fill description");
+        if(book.getAuthor().isBlank()) throw new IllegalArgsException("Please fill Author");
+        if(book.getPages()==0) throw new IllegalArgsException("No pages??");
+        if(book.getPrice()==0) throw new IllegalArgsException("No price??");
         return bookRepo.save(book);
     }
 

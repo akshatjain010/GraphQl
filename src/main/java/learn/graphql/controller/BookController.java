@@ -5,6 +5,8 @@
 package learn.graphql.controller;
 
 import java.util.List;
+import learn.graphql.exception.EmptyResultException;
+import learn.graphql.exception.IllegalArgsException;
 import learn.graphql.model.Book;
 import learn.graphql.service.BookService;
 import lombok.Getter;
@@ -14,9 +16,6 @@ import org.springframework.graphql.data.method.annotation.Argument;
 import org.springframework.graphql.data.method.annotation.MutationMapping;
 import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 /**
  *
@@ -35,6 +34,7 @@ public class BookController {
     
     @MutationMapping("createBook")
     public Book createBook(@Argument BookInput book) {
+        if(book==null) throw new IllegalArgsException("Please fill required details");
         Book b= new Book();
         b.setTitle(book.getTitle());
         b.setDesc(book.getDesc());
@@ -57,7 +57,9 @@ public class BookController {
     
     @QueryMapping("findAllBooks")
     public List<Book> findAllBooks() {
-        return bookService.findAllBooks();
+        List<Book> allBooks= bookService.findAllBooks();
+        if(allBooks.isEmpty()) throw new EmptyResultException("No books available");
+        else return allBooks;
     }
     
     @QueryMapping("findBook")

@@ -22,4 +22,18 @@ public class GlobalExceptionHandler {
                 .message(e.getMessage())
                 .build();
     }
+    
+    @GraphQlExceptionHandler
+    public GraphQLError handleIllegalArgsException(IllegalArgsException e) {
+        return GraphQLError.newError()
+                .message(e.getMessage())
+                .build();
+    }
+    
+    @GraphQlExceptionHandler
+    public GraphQLError handleEmptyResultException(EmptyResultException e) {
+        return GraphQLError.newError()
+                .message(e.getMessage())
+                .build();
+    }
 }

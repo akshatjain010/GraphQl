@@ -37,7 +37,7 @@ public class BookController {
         if(book==null) throw new IllegalArgsException("Please fill required details");
         Book b= new Book();
         b.setTitle(book.getTitle());
-        b.setDesc(book.getDesc());
+        b.setDescription(book.getDescription());
         b.setAuthor(book.getAuthor());
         b.setPrice(book.getPrice());
         b.setPages(book.getPages());
@@ -48,7 +48,7 @@ public class BookController {
     public Book editBook(@Argument int id, @Argument BookInput book) {
         Book b= new Book();
         b.setTitle(book.getTitle());
-        b.setDesc(book.getDesc());
+        b.setDescription(book.getDescription());
         b.setAuthor(book.getAuthor());
         b.setPrice(book.getPrice());
         b.setPages(book.getPages());
@@ -73,7 +73,7 @@ public class BookController {
 class BookInput {
 
     private String title;
-    private String desc;
+    private String description;
     private String author;
     private double price;
     private int pages;

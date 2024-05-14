@@ -18,21 +18,21 @@ public class GraphqlApplication implements CommandLineRunner{
         
         Book b1= new Book();
         b1.setTitle("Java");
-        b1.setDesc("Hello Java");
+        b1.setDescription("Hello Java");
         b1.setAuthor("Akshat");
         b1.setPrice(200);
         b1.setPages(100);
         
         Book b2= new Book();
         b2.setTitle("Python");
-        b2.setDesc("Hello Python");
+        b2.setDescription("Hello Python");
         b2.setAuthor("Shruti");
         b2.setPrice(300);
         b2.setPages(150);
         
         Book b3= new Book();
         b3.setTitle("C++");
-        b3.setDesc("Hello C++");
+        b3.setDescription("Hello C++");
         b3.setAuthor("Swati");
         b3.setPrice(300);
         b3.setPages(150);

@@ -36,7 +36,7 @@ class GraphqlApplicationTests {
         Book book= new Book();
         
         book.setTitle("Test Title");
-        book.setDesc("Test Desc");
+        book.setDescription("Test Desc");
         book.setAuthor("Test Author");
         book.setPrice(100.0);
         book.setPages(100);
@@ -64,7 +64,7 @@ class GraphqlApplicationTests {
     void testFindBook() {
         Book expectedBook = new Book();
         expectedBook.setTitle("Test Title");
-        expectedBook.setDesc("Test Desc");
+        expectedBook.setDescription("Test Desc");
         expectedBook.setAuthor("Test Author");
         expectedBook.setPrice(100.0);
         expectedBook.setPages(100);
@@ -79,7 +79,7 @@ class GraphqlApplicationTests {
     void testDeleteBook() {
         Book book= new Book();
         book.setTitle("Test Title");
-        book.setDesc("Test Desc");
+        book.setDescription("Test Desc");
         book.setAuthor("Test Author");
         book.setPrice(100.0);
         book.setPages(100);
@@ -96,7 +96,7 @@ class GraphqlApplicationTests {
     void testEditBook() {
         Book book= new Book();
         book.setTitle("Test Title");
-        book.setDesc("Test Desc");
+        book.setDescription("Test Desc");
         book.setAuthor("Test Author");
         book.setPrice(100.0);
         book.setPages(100);
@@ -105,7 +105,7 @@ class GraphqlApplicationTests {
         Book fetchBook= bookService.findBook(1);
        
         fetchBook.setTitle(book.getTitle());
-        fetchBook.setDesc(book.getDesc());
+        fetchBook.setDescription(book.getDescription());
         fetchBook.setAuthor(book.getAuthor());
         fetchBook.setPrice(book.getPrice());
         fetchBook.setPages(book.getPages());

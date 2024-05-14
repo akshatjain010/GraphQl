@@ -26,7 +26,7 @@ public class BookServiceImpl implements BookService{
     @Override
     public Book createBook(Book book) {
         if(book.getTitle().isBlank()) throw new IllegalArgsException("Please fill title");
-        if(book.getDesc().isBlank()) throw new IllegalArgsException("Please fill description");
+        if(book.getDescription().isBlank()) throw new IllegalArgsException("Please fill description");
         if(book.getAuthor().isBlank()) throw new IllegalArgsException("Please fill Author");
         if(book.getPages()==0) throw new IllegalArgsException("No pages??");
         if(book.getPrice()==0) throw new IllegalArgsException("No price??");
@@ -57,7 +57,7 @@ public class BookServiceImpl implements BookService{
         Book newBook= bookRepo.findById(id)
                     .orElseThrow(() -> new BookNotFoundException("Book not found with id: " + id));
         newBook.setTitle(book.getTitle());
-        newBook.setDesc(book.getDesc());
+        newBook.setDescription(book.getDescription());
         newBook.setAuthor(book.getAuthor());
         newBook.setPrice(book.getPrice());
         newBook.setPages(book.getPages());
